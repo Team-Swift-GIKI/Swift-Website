@@ -1,8 +1,8 @@
 let prevScrollpos = window.scrollY;
-const nav = document.getElementsByTagName("nav")[0]
-const swiftlogo = document.getElementById("SwiftLogoCentral")
-const plane = document.getElementById("ScrollBarPlane")
-const bar = document.getElementById("ScrollBarTrack")
+const nav = document.getElementsByTagName("nav")[0];
+const swiftlogo = document.getElementById("SwiftLogoCentral");
+const plane = document.getElementById("ScrollBarPlane");
+const bar = document.getElementById("ScrollBarTrack");
 const body = document.body;
 const textarea = document.getElementsByTagName('textarea')[0];
 const form = document.getElementsByTagName('form')[0];
@@ -42,7 +42,6 @@ window.onscroll = function () {
     initial_right_plane_latch = true;
   }
 
-
   let planeTgt = (window.scrollY / body.scrollHeight) * 112;
   plane.style.top = planeTgt + "vh";
 };
@@ -77,36 +76,49 @@ function validateEmail(email) {
 }
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault()
+  e.preventDefault();
   if (!validateEmail(senderemail.value.toLowerCase())) {
-    alert("Email is invalid")
+    alert("Email is invalid");
   }
-  console.log("Email validated!")
+  console.log("Email validated!");
 
   fetch('/sendData', {
     method: 'POST',
     body: sendername.value.length + sendername.value + senderemail.value.length + senderemail.value + textarea.value.length + textarea.value
   }).then(response => response.json()).then(data => alert("Form submitted successfully! \nRESPONSE: " + data))
-    .catch(error => alert("There was an issue submitting the form. \nMaybe the internet disconnected."))
-})
+    .catch(error => alert("There was an issue submitting the form. \nMaybe the internet disconnected."));
+});
 
 var menuopen = false;
 
 menubutton.addEventListener("click", (e) => {
-  console.log("test")
+  console.log("test");
   e.preventDefault();
   if (!menuopen) {
-    menubutton.src = "images/cross.webp"
+    menubutton.src = "images/cross.webp";
     menuobj.style.marginLeft = "0";
     menuopen = true;
   }
   else {
-    menubutton.src = "images/menuicon.webp"
+    menubutton.src = "images/menuicon.webp";
     menuobj.style.marginLeft = "-100vw";
     menuopen = false;
   }
-})
+});
 
-menubutton.src = "images/menuicon.webp"
+menubutton.src = "images/menuicon.webp";
 menuobj.style.marginLeft = "-100vw";
 menuopen = false;
+
+// Closing menu on menu item click
+const menuitems = document.querySelectorAll("#sidenav a");
+
+menuitems.forEach(item => {
+  item.addEventListener("click", () => {
+    if (menuopen) {
+      menubutton.src = "images/menuicon.webp";
+      menuobj.style.marginLeft = "-100vw";
+      menuopen = false;
+    }
+  });
+});
