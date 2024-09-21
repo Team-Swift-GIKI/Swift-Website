@@ -661,6 +661,7 @@ MARK: MOBILE
 		width: 50vw;
 		height: 100vh;
 		background-color: #fff;
+		padding-left: 20px;
 	}
 
 	#sidenav>ul>li>a,
