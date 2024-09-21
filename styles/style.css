@@ -62,7 +62,7 @@ MARK: BG images
 }
 
 .MultiCopterBG {
-	background-image: url("../images/Bumblebee.jpg") !important;
+	background-image: url("../images/Bumblebee.JPG") !important;
 	background-size: cover !important;
 	background-position: center;
 
@@ -80,7 +80,7 @@ MARK: GLOBAL
 IF I FIND A GLOBAL RULE ANYWHERE ELSE SAY GOODBYE TO YOUR FAMILY
 */
 
-html{
+html {
 	overflow-x: hidden;
 }
 
@@ -621,9 +621,10 @@ MARK: TABLET PORTRAT
 MARK: MOBILE 
 */
 @media (max-width: 768px) {
-		#TitleScreen {
+	#TitleScreen {
 		font-size: 3vw;
 	}
+
 	nav>ul>li {
 		display: none;
 	}
