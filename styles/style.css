@@ -25,7 +25,7 @@ MARK: RULES
 
 
 :root {
-	--NavGuidesDisplay: block;
+	--NavGuidesDisplay: none;
 
 	--SwiftColor: #09192e;
 	--SwiftColorSemiTransp: #09192e88;
