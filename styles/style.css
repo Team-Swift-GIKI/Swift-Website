@@ -1,0 +1,778 @@
+/* 
+MARK: RULES
+*/
+/*
+	RULES:
+		- Keep it SPECIFIC, don't use general selectors unless absolutely necessary
+		- Keep it ORGANIZED, group related rules together
+		- Keep it CLEAN, remove unused rules*
+		- Keep it CONSISTENT, use the same naming conventions
+		- Keep it SIMPLE, don't overcomplicate things
+		- Keep it COMMENTED, explain complex rules
+		- Keep it HUMAN, don't use GPT
+		- Keep it MODULAR, do not overburden classes
+		- Keep it MAINTAINABLE, use variables for repeated values
+		- Keep it RESPONSIVE, everything should scale naturally
+
+	*Tool to help you analyse unused rules: https://developer.chrome.com/docs/devtools/css
+
+	If you find the misfortune of having to violate any of these rules, Hamza will come break your knees
+*/
+
+/*
+	MARK: PUBLIC VARIABLES
+*/
+:root {
+	--NavGuidesDisplay: block;
+
+	--SwiftColor: #09192e;
+	--SwiftColorSemiTransp: #09192e88;
+	--PrimaryTextLight: #ffffff;
+	--AccentDark: #002025;
+	--AccentMedium: #00788a;
+	--AccentLight: #b3d8de;
+	--AccentLightSemiTransp: #b3d8decc;
+
+	--AlignGuidesColor: #ff0000;
+	--AlignGuidesDisplay: var(--NavGuidesDisplay);
+	--ScrollBarGuidesColor: #ffff00;
+	--ScrollBarGuidesDisplay: var(--NavGuidesDisplay);
+
+}
+
+
+
+/*
+MARK: BG images
+
+*/
+
+.NebulaBG {
+	background-image: url("../images/nebula.jpg") !important;
+	background-size: cover !important;
+	background-position: left 35% bottom 45%;
+}
+
+
+.RecluseBG {
+	background-image: url("../images/recluse.jpeg") !important;
+	background-position: center;
+}
+
+.MultiCopterBG {
+	background-image: url("../images/Bumblebee.jpg") !important;
+	background-size: cover !important;
+	background-position: center;
+
+}
+
+.FixedWingBG {
+	background-image: url("../images/Snapper.JPG") !important;
+
+
+}
+
+/*
+MARK: GLOBAL
+
+IF I FIND A GLOBAL RULE ANYWHERE ELSE SAY GOODBYE TO YOUR FAMILY
+*/
+
+#ScrollLineVert {
+	width: 0.1vw;
+	height: 100vh;
+	position: fixed;
+	display: var(--ScrollBarGuidesDisplay);
+	background-color: var(--ScrollBarGuidesColor);
+	z-index: 100;
+	top: 0;
+	left: 97.9vw;
+}
+
+#CenterLineVert {
+	width: 0.1vw;
+	height: 100vh;
+	position: fixed;
+	display: var(--AlignGuidesDisplay);
+	background-color: var(--AlignGuidesColor);
+	z-index: 100;
+	top: 0;
+	left: 49.9vw;
+}
+
+#CenterLineHorz {
+	width: 100vw;
+	height: 0.1vh;
+	position: fixed;
+	display: var(--AlignGuidesDisplay);
+	background-color: var(--AlignGuidesColor);
+	z-index: 100;
+	top: 49.9vh;
+	left: 0;
+}
+
+* {
+	transition: all 0.5s ease;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 2vh;
+}
+
+#email a {
+	color: var(--SwiftColor);
+	text-decoration: none;
+}
+
+#email {
+	font-size: 2vw;
+}
+
+body {
+	color: var(--PrimaryTextLight);
+	font-family: "Montserrat", sans-serif;
+	background: var(--AccentLight);
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+a:hover>.underline {
+	background-color: var(--AccentLight);
+	visibility: visible;
+}
+
+a>.underline {
+	display: block;
+	background-color: #ffffff00;
+	visibility: hidden;
+	margin-top: 10px;
+	width: 60%;
+	height: 2px;
+	align-self: center;
+}
+
+::selection {
+	background: var(--SwiftColor);
+	color: var(--AccentMedium);
+}
+
+html::-webkit-scrollbar {
+	display: none;
+}
+
+.fullscreen {
+	min-height: 100vh;
+	min-width: 100vw;
+}
+
+.simple-card {
+	overflow: hidden;
+	min-height: 400px;
+	min-width: 400px;
+
+	max-width: 400px;
+	display: block;
+	background-color: #00788a44;
+	background-size: cover;
+	padding: 2vw;
+	border-radius: 10px;
+	width: max-content;
+	color: var(--SwiftColor);
+	margin: 2vw;
+	backdrop-filter: blur(10px);
+}
+
+
+.fleetTextArea {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 95%;
+	padding: 20px;
+	margin-top: 50%;
+	background-color: var(--SwiftColor);
+
+}
+
+.simple-card h2 {
+	padding: 0px;
+	color: #fff;
+	-webkit-text-stroke: 0.05px black;
+
+
+}
+
+.simple-card p {
+	color: var(--SwiftColor);
+	color: #fff;
+	-webkit-text-stroke: 0.05px black;
+}
+
+li {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+	color: var(--PrimaryTextLight);
+}
+
+form {
+	display: block;
+}
+
+form>* {
+	height: 4vh;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: 0.5vh 0;
+	padding: 10px;
+	border-radius: 20px;
+	background-color: #00000000;
+	color: var(--AccentDark);
+	border-width: 1px;
+}
+
+form>input {
+	width: 20vw;
+}
+
+form>textarea {
+	width: 40vw;
+	overflow-y: hidden;
+	resize: none;
+}
+
+form>button {
+	min-width: 10vw;
+}
+
+form>button:hover {
+	background-color: var(--AccentDark);
+	color: var(--AccentLight);
+}
+
+/*
+MARK: NAVIGATION
+*/
+
+/* The entire navigation */
+nav {
+	/* COLORING DONE BY fixnav.js
+	background-color: var(--SwiftColor);
+	background-color: #ffffff00;*/
+	display: block;
+	position: fixed;
+	width: 100vw;
+	z-index: 99;
+}
+
+nav>ul {
+	margin: 0;
+	display: flex;
+	width: 100vw;
+	height: 12vw;
+	top: 0;
+	left: 0;
+	align-items: center;
+	box-sizing: border-box;
+	justify-content: center;
+	margin-left: 0.5vw;
+}
+
+/* Individual navigation elements */
+nav>ul>li {
+	color: var(--PrimaryTextLight);
+	padding: 0 0.5vw;
+	max-width: 10vw;
+	min-width: 10vw;
+	font-size: 1vw;
+	font-family: "Raleway", sans-serif;
+	display: inline-block;
+
+}
+
+nav>ul>li>a {
+	overflow: hidden;
+	position: relative;
+	text-decoration: none;
+	font-family: "Raleway", sans-serif;
+	color: var(--PrimaryTextLight);
+}
+
+nav>ul>li:hover>a {
+	color: var(--AccentLight);
+}
+
+
+/* Swift logo from nav */
+#SwiftLogoCentral {
+	width: 12vw;
+	margin-left: 44vw;
+	z-index: 100;
+	position: fixed;
+}
+
+#menuicon {
+	display: none;
+}
+
+#sidenav {
+	display: none;
+}
+
+/*
+MARK: TITLE SCREEN
+*/
+
+#TitleScreen {
+	background-image: url(../images/cover.webp);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: left center;
+	background-attachment: fixed;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+	margin: 0;
+}
+
+#TitleScreenText {
+	color: var(--SwiftColorSemiTransp);
+	font-size: 3em;
+	text-align: center;
+}
+
+/*
+MARK: AT A GLANCE
+*/
+
+#AtAGlance {
+	padding: 0;
+	margin: 0;
+	background: url(../images/swiftsuas2024.webp);
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	display: block;
+}
+
+#AtAGlance>h1 {
+	display: flex;
+	width: 100vw;
+	justify-content: space-around;
+	padding: auto;
+}
+
+#AtAGlance>div {
+	display: block;
+	padding: auto;
+	width: 80vw;
+	/* Set a width for the div */
+	margin: 0 auto;
+	/* Auto margin on left and right */
+}
+
+#AtAGlance>div>h2 {
+	display: flex;
+	width: 78vw;
+	justify-content: space-around;
+	padding: auto;
+}
+
+#AtAGlance>h1 {
+	margin-left: -1vw;
+}
+
+#AAG-Awards>ul {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: normal;
+	max-width: 80vw;
+}
+
+#AAG-Awards>ul>li {
+	display: inline-block;
+	padding: 3vw;
+}
+
+#AtAGlance>div>ul>li>h2 {
+	padding-left: 0;
+}
+
+#AAG-Media>ul {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: normal;
+	max-width: 80vw;
+}
+
+#AtAGlance>div>ul>li>img {
+	max-width: 10vw;
+	max-height: 10vh;
+	display: inline-block;
+	padding: 2vw;
+}
+
+#AAG-Fleet>ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#AAG-Comp>ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+#AAG-Comp>ul>li {
+	padding: 2vw;
+}
+
+#AAG-Comp>ul>li>h2 {
+	margin: 0 auto;
+}
+
+/*
+	MARK: SPONSORS
+*/
+#Sponsors {
+	background: linear-gradient(var(--SwiftColor), var(--AccentDark)), var(--SwiftColor);
+}
+
+#Sponsors>h1 {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	padding: 2vh;
+}
+
+#SponsorList>a>h2 {
+	padding-left: 0;
+}
+
+#SponsorList>a {
+	padding: 5vw;
+}
+
+#SponsorList>a>img {
+	height: auto;
+	max-width: 20vw;
+	max-height: 30vh;
+	margin: 0 auto;
+}
+
+#SponsorList {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.Platinum {
+	margin: 1vw;
+	color: var(--AccentLight);
+	background-color: #c2a6cf53;
+	border-radius: 10px;
+}
+
+.Gold {
+	margin: 1vw;
+	color: var(--AccentLight);
+	background-color: #dfd09653;
+	border-radius: 10px;
+}
+
+.Technical {
+	margin: 1vw;
+	color: (--AccentLight);
+	background: url(../images/TechnicalBGLight.webp);
+	background-color: rgba(255, 255, 255, 0.162);
+	background-blend-mode: overlay;
+	border-radius: 10px;
+}
+
+.Platinum:hover {
+	background-color: #c2a6cfff;
+	color: #000;
+}
+
+.Gold:hover {
+	background-color: #dfd096ff;
+	color: #000;
+}
+
+.Technical:hover {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+#Sponsors>h1#sponsorbutton {
+	display: block;
+	position: absolute;
+	left: 50%;
+	font-weight: normal;
+	border-color: var(--AccentLight);
+	border-width: 1px;
+	border-radius: 20px;
+	border-style: solid;
+	background-color: #00000000;
+	transform: translateX(-50%);
+	margin-bottom: 60px;
+}
+
+#Sponsors>h1#sponsorbutton:hover {
+	background-color: var(--AccentLight);
+}
+
+#Sponsors>h1#sponsorbutton:hover>a {
+	color: var(--AccentDark);
+}
+
+#Sponsors>h1#sponsorbutton>a {
+	color: var(--AccentLight);
+}
+
+
+
+/*
+	MARK: GET IN TOUCH
+*/
+
+#GetInTouch {
+	background: url(../images/hydra.webp);
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+	display: grid;
+	place-items: center;
+}
+
+#GetInTouch>div>h1 {
+	display: flex;
+	align-self: center;
+	justify-content: space-evenly;
+	margin-left: 0.5vw;
+	padding: 2vw;
+	color: var(--AccentDark)
+}
+
+#GetInTouch>div {
+	background-color: #ffffff99;
+	width: 50vw;
+	margin: auto;
+	align-self: center;
+	backdrop-filter: blur(10px);
+	padding: 2vw;
+	border-radius: 10px;
+}
+
+/*
+	MARK: FOOTER
+*/
+#Footer {
+	width: 100vw;
+	background-color: #fff;
+	color: #000;
+	display: block;
+	padding: 40px;
+}
+
+/*
+	MARK: SCROLLBAR
+#ScrollBarPlane {
+}*/
+
+/* 
+MARK: TABLET PORTRAT 
+*/
+@media (max-width: 900px) {
+	nav>ul>li {
+		font-size: 0.6em;
+	}
+}
+
+
+/* 
+MARK: MOBILE 
+*/
+@media (max-width: 768px) {
+	nav>ul>li {
+		display: none;
+	}
+
+	#menuicon {
+		display: inline-block;
+		width: 10vw;
+		position: fixed;
+		top: 0;
+		right: 2vw;
+		z-index: 201;
+	}
+
+	#menuicon:hover {
+		filter: sepia(1) saturate(10) hue-rotate(120deg) brightness(0.2);
+	}
+
+
+	#sidenav {
+		display: block;
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		background-color: #00000044;
+		backdrop-filter: blur(10px);
+		z-index: 200;
+	}
+
+	#sidenav>ul {
+		display: block;
+		position: fixed;
+		margin-left: 0;
+		margin-top: 0;
+		width: 50vw;
+		height: 100vh;
+		background-color: #fff;
+	}
+
+	#sidenav>ul>li>a,
+	#sidenav>ul>li>h2,
+	#sidenav>ul>li {
+		color: #000;
+		padding: 3vh 0;
+	}
+
+	#sidenav>ul>li:hover>a {
+		color: #222;
+		font-weight: bold;
+	}
+
+	.DroneName {
+		font-size: 3em;
+		color: #fff;
+	}
+
+	#TitleScreenNebula>div,
+	.DroneParallax1>div,
+	.DroneParallax2>div {
+		position: relative;
+		left: 50vw;
+		text-align: center;
+		transform: translateX(-50%);
+		top: 20vh;
+		width: 70vw;
+	}
+
+	ul {
+		padding: 0;
+	}
+
+
+	#email {
+		font-size: 4vw;
+	}
+
+	#SponsorList a {
+		width: 100%;
+
+	}
+
+	#GetInTouch div {
+		width: 80% !important;
+	}
+
+	.simple-card {
+		overflow: hidden;
+		min-height: 300px;
+		min-width: 100vw;
+		max-width: 400px;
+		display: block;
+		background-color: #00788a44;
+		background-size: cover;
+		padding: 2vw;
+		border-radius: 10px;
+		width: max-content;
+		color: var(--SwiftColor);
+		margin: 2vw;
+		backdrop-filter: blur(10px);
+	}
+}
+
+/*
+	MARK: DRONE DISPLAY
+*/
+
+
+#TitleScreenNebula {
+	background-image: url(../images/hydra.webp);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: left center;
+	background-attachment: fixed;
+	background-color: #000000aa;
+	background-blend-mode: multiply;
+	width: 100vw;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
+}
+
+#TitleScreenNebula>div,
+.DroneParallax1>div,
+.DroneParallax2>div {
+	position: relative;
+	left: 50vw;
+	text-align: center;
+	transform: translateX(-50%);
+	top: 20vh;
+}
+
+.DroneName {
+	font-size: 5em;
+	color: #fff;
+}
+
+.DroneParallax1 {
+	background-image: url(../images/swiftsuas2024.webp);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: left center;
+	background-color: #000000aa;
+	background-blend-mode: multiply;
+	width: 100vw;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
+}
+
+.DroneParallax2 {
+	background-image: url(../images/cover.webp);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: left center;
+	background-attachment: fixed;
+	background-color: #000000aa;
+	background-blend-mode: multiply;
+	width: 100vw;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
+}
