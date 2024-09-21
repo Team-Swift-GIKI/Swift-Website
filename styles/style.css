@@ -621,6 +621,9 @@ MARK: TABLET PORTRAT
 MARK: MOBILE 
 */
 @media (max-width: 768px) {
+		#TitleScreen {
+		font-size: 3vw;
+	}
 	nav>ul>li {
 		display: none;
 	}
